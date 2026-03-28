@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18047167084"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18047167084');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Hadiah Lagu — Buat lagu original dari kisah cinta Anda. Hadiah pernikahan paling personal, selesai maksimal 1x24 jam. Mulai Rp 199.000.">
@@ -543,6 +534,65 @@
     font-style: italic;
   }
 
+  /* ─── TRUST BUILDER ─── */
+  .trust-builder {
+    max-width: 520px;
+    margin: 2.5rem auto 0;
+  }
+
+  .trust-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+
+  .trust-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--white);
+    border: 1px solid rgba(198,169,108,0.15);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .trust-item:hover {
+    border-color: var(--gold-light);
+    box-shadow: 0 4px 16px rgba(198,169,108,0.1);
+  }
+
+  .trust-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .trust-item strong {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-item p {
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    line-height: 1.55;
+    margin: 0;
+  }
+
   /* ─── TESTIMONIALS ─── */
   .testimonials-section {
     background: var(--white);
@@ -980,7 +1030,7 @@
   <div class="hero-ornament"></div>
   <p class="hero-badge">Hadiah Lagu</p>
   <h1>Abadikan Kisah Cinta<br>dalam <em>Sebuah Lagu</em></h1>
-  <p class="hero-sub">Hadiah pernikahan paling personal — lagu original yang diciptakan khusus dari kisah nyata. Untuk pengantin, dari sahabat, atau untuk kekasih tercinta.</p>
+  <p class="hero-sub">Hadiah pernikahan paling personal — lagu original yang diciptakan khusus dari kisah nyata. Untuk pengantin, dari sahabat, atau untuk pasangan yang siap melangkah ke pelaminan.</p>
   <div class="hero-price-highlight">
     <span class="hero-price-tag">Rp 199.000</span>
     <span class="hero-price-label">satu lagu<br>full original</span>
@@ -1020,8 +1070,8 @@
       </div>
       <div class="persona-card">
         <span class="persona-emoji">💕</span>
-        <h3>Pasangan yang Bermimpi</h3>
-        <p>Belum menikah? Tidak masalah. Pesan sekarang sebagai janji cinta — lagu yang menyimpan mimpi bersama untuk masa depan.</p>
+        <h3>Pasangan Menuju Pelaminan</h3>
+        <p>Sedang taaruf atau sudah siap melamar? Hadirkan lagu sebagai penguat niat suci menuju pernikahan — karena cinta terbaik adalah yang berujung halal.</p>
       </div>
     </div>
   </div>
@@ -1130,7 +1180,7 @@
         <div class="step-number">2</div>
         <div class="step-content">
           <h3>Kami Ciptakan Lagunya</h3>
-          <p>Tim kami menyusun lirik personal, melodi, dan aransemen musik lengkap. Genre bebas pilih: akustik, pop, ballad, R&B, atau islami/nasyid.</p>
+          <p>Tim kreatif kami merancang seluruh arahan musik — mulai dari struktur lagu, nuansa emosi, lirik personal, pemilihan instrumen, hingga gaya vokal — lalu mengarahkan teknologi AI musik terbaru untuk mengeksekusinya. Hasilnya: lagu berkualitas studio dengan harga terjangkau, karena manusia yang mengarahkan, AI yang mengeksekusi.</p>
         </div>
       </div>
       <div class="step">
@@ -1148,7 +1198,7 @@
 <section class="price-section" id="harga">
   <div class="section-inner reveal">
     <p class="section-label">Harga Tunggal</p>
-    <h2 class="section-title">Tanpa Paket Ribet,<br>Langsung Dapat Semuanya</h2>
+    <h2 class="section-title">Kualitas Studio,<br>Harga <em>Hadiah</em></h2>
     <div class="divider"></div>
 
     <div class="price-card">
@@ -1169,6 +1219,34 @@
         ✎&ensp;Pesan Sekarang — Rp 199.000
       </a>
       <p class="price-guarantee">✦ Tidak puas? Revisi gratis sampai sesuai harapan.</p>
+    </div>
+
+    <!-- Trust Builder -->
+    <div class="trust-builder">
+      <p class="trust-title">Kenapa bisa Rp 199.000?</p>
+      <div class="trust-items">
+        <div class="trust-item">
+          <span class="trust-icon">✍️</span>
+          <div>
+            <strong>Manusia Merancang Segalanya</strong>
+            <p>Tim kreatif kami tidak hanya menulis lirik — kami merancang seluruh arahan: struktur lagu, nuansa emosi tiap bagian, pemilihan instrumen, gaya vokal, tempo, hingga dinamika naik-turun. Semua diatur agar AI menghasilkan yang terbaik.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🤖</span>
+          <div>
+            <strong>AI Mengeksekusi dengan Presisi</strong>
+            <p>Setelah arahan lengkap dari tim kami, AI musik terbaru mengeksekusi melodi, aransemen, dan vokal berkualitas studio — proses yang dulu butuh jutaan rupiah dan berminggu-minggu.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🎯</span>
+          <div>
+            <strong>Terjangkau Bukan Berarti Murahan</strong>
+            <p>Dengarkan sendiri contoh lagunya di atas. Kualitas studio, harga hadiah. Misi kami: semua orang berhak punya lagu cinta mereka sendiri.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1199,10 +1277,10 @@
         <span class="testimonial-segment">Keluarga</span>
       </div>
       <div class="testimonial-card">
-        <p class="testimonial-text">Kami belum menikah, tapi saya pesan lagu ini sebagai hadiah anniversary pacaran ke-3. Dia bilang ini hadiah paling romantis.</p>
+        <p class="testimonial-text">Saya pesan lagu ini untuk melamar kekasih hati saya. Saat lagu diputar, dia langsung menangis dan bilang 'iya'. Alhamdulillah, sekarang kami resmi menikah.</p>
         <p class="testimonial-author">Dimas</p>
-        <p class="testimonial-detail">Untuk kekasihnya</p>
-        <span class="testimonial-segment">Pasangan</span>
+        <p class="testimonial-detail">Hadiah lamaran</p>
+        <span class="testimonial-segment">Menuju Pelaminan</span>
       </div>
     </div>
   </div>
@@ -1220,8 +1298,16 @@
         <div class="faq-answer"><p>Satu lagu full original: lirik personal, melodi, aransemen musik lengkap dengan vokal profesional, file MP3 high quality, plus 1x revisi lirik gratis. Hak cipta 100% milik Anda. Selesai maksimal 1x24 jam.</p></div>
       </div>
       <div class="faq-item">
+        <button class="faq-question">Kok bisa murah? Apa kualitasnya bagus?</button>
+        <div class="faq-answer"><p>Kami menggunakan teknologi AI musik terbaru, tapi bukan asal generate. Tim kreatif kami merancang seluruh arahan secara detail — lirik personal, struktur lagu, nuansa emosi, pemilihan instrumen, gaya vokal, tempo — baru kemudian AI mengeksekusi arahan tersebut dengan presisi. Manusia yang mengarahkan, AI yang mengeksekusi. Hasilnya: kualitas profesional, harga terjangkau. Dengarkan contoh lagunya di atas untuk membuktikan sendiri.</p></div>
+      </div>
+      <div class="faq-item">
         <button class="faq-question">Apakah saya bisa request genre tertentu?</button>
         <div class="faq-answer"><p>Tentu! Kami bisa membuat lagu dalam genre pop, akustik, ballad, R&B, islami/nasyid, atau campuran sesuai selera.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Bisa request suara mirip artis tertentu?</button>
+        <div class="faq-answer"><p>Mohon maaf, kami tidak bisa membuat lagu dengan suara yang meniru artis/penyanyi tertentu karena akan melanggar hak cipta mereka. Sebagai gantinya, kami menyediakan berbagai pilihan karakter vokal — pria atau wanita, lembut atau powerful — yang tetap berkualitas profesional dan cocok dengan nuansa lagu Anda.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question">Berapa lama prosesnya?</button>
@@ -1232,8 +1318,8 @@
         <div class="faq-answer"><p>Sangat bisa! Banyak pemesan kami adalah sahabat, keluarga, atau pasangan yang ingin memberi surprise. Kami menjaga kerahasiaan penuh.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Belum mau menikah, boleh pesan?</button>
-        <div class="faq-answer"><p>Boleh! Lagu ini bisa untuk hadiah anniversary pacaran, lamaran, atau sekadar ungkapan cinta. Tidak harus untuk pernikahan.</p></div>
+        <button class="faq-question">Belum menikah, boleh pesan?</button>
+        <div class="faq-answer"><p>Boleh, selama niatnya menuju pernikahan. Lagu ini cocok untuk hadiah lamaran, penguat niat saat taaruf, atau kejutan menjelang akad. Kami percaya cinta terbaik adalah yang segera dihalalkan — dan lagu ini bisa jadi langkah indah menuju ke sana, insya Allah.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question">Bagaimana jika saya tidak puas?</button>
