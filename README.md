@@ -14,7 +14,13 @@ Landing page + formulir brief untuk jasa pembuatan lagu pernikahan custom.
 hadiahlagu/
 ├── index.html        ← Landing page (hadiahlagu.com)
 ├── formulir.html     ← Form brief (hadiahlagu.com/formulir)
-├── vercel.json       ← Config Vercel (clean URLs, security headers, redirects)
+├── og-image.png      ← OG image / hero background
+├── og-image2.png     ← Foto CTA section
+├── audio/            ← Sample lagu MP3
+├── sitemap.xml       ← Sitemap untuk Google
+├── robots.txt        ← Instruksi crawler
+├── vercel.json       ← Config Vercel
+├── PANDUAN-SEO.md    ← Panduan SEO & Google Search Console
 ├── .gitignore
 └── README.md
 ```
