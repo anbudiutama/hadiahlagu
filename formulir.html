@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Isi formulir brief untuk memesan lagu pernikahan custom di Hadiah Lagu. Ceritakan kisah cinta Anda, kami yang buat lagunya.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://hadiahlagu.com/formulir">
+<title>Formulir Brief Lagu — Hadiah Lagu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C6A96C;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8B7340;
+    --cream: #FFF9F0;
+    --cream-dark: #F5EDE0;
+    --rose: #B8626A;
+    --rose-deep: #8B3A42;
+    --rose-light: #D4949A;
+    --charcoal: #2C2420;
+    --warm-gray: #6B5E55;
+    --white: #FFFDFB;
+    --error: #C0392B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--charcoal);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  .form-header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(198,169,108,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(184,98,106,0.08) 0%, transparent 50%),
+      var(--cream);
+    position: relative;
+  }
+
+  .form-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--gold-dark);
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover { color: var(--rose); }
+
+  .form-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-header h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .form-header p {
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid rgba(198,169,108,0.15);
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(44,36,32,0.04);
+  }
+
+  .progress-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 4px;
+    background: var(--cream-dark);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--rose));
+    border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 0%;
+  }
+
+  .progress-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    white-space: nowrap;
+  }
+
+  /* ─── FORM CONTAINER ─── */
+  .form-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ─── FORM SECTION ─── */
+  .form-section {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: var(--white);
+    border: 1px solid rgba(198,169,108,0.15);
+    border-radius: 12px;
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-section:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 4px 24px rgba(198,169,108,0.12);
+  }
+
+  .form-section-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(198,169,108,0.3);
+  }
+
+  .form-section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+    color: var(--charcoal);
+    padding-left: 0.25rem;
+  }
+
+  .form-section-desc {
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+    padding-left: 0.25rem;
+  }
+
+  /* ─── INPUT STYLES ─── */
+  .field-group {
+    margin-bottom: 1rem;
+  }
+
+  .field-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .field-label {
+    display: block;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .field-label .optional {
+    font-weight: 400;
+    color: var(--warm-gray);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: none;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    background: var(--cream);
+    border: 1px solid rgba(198,169,108,0.25);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    resize: vertical;
+  }
+
+  input[type="text"]:focus,
+  textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(198,169,108,0.1);
+    background: var(--white);
+  }
+
+  input[type="text"]::placeholder,
+  textarea::placeholder {
+    color: var(--rose-light);
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  textarea.short {
+    min-height: 70px;
+  }
+
+  /* ─── NAME ENTRIES (dynamic) ─── */
+  .name-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .name-entry {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .name-entry input {
+    flex: 1;
+  }
+
+  .btn-remove-name {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(184,98,106,0.3);
+    border-radius: 8px;
+    background: none;
+    color: var(--rose-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-top: 0.05rem;
+  }
+
+  .btn-remove-name:hover {
+    background: rgba(184,98,106,0.08);
+    color: var(--rose-deep);
+    border-color: var(--rose);
+  }
+
+  .btn-add-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    background: none;
+    border: 1px dashed var(--gold-light);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+  }
+
+  .btn-add-name:hover {
+    border-color: var(--gold);
+    background: rgba(198,169,108,0.05);
+  }
+
+  /* ─── GENRE CHIPS ─── */
+  .genre-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .genre-chip {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--warm-gray);
+    background: var(--cream);
+    border: 1px solid rgba(198,169,108,0.25);
+    border-radius: 50px;
+    padding: 0.5rem 1.15rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .genre-chip:hover {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+  }
+
+  .genre-chip.selected {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--white);
+    border-color: var(--gold);
+    box-shadow: 0 2px 10px rgba(198,169,108,0.25);
+  }
+
+  .genre-custom {
+    margin-top: 0.75rem;
+    display: none;
+  }
+
+  .genre-custom.visible {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  /* ─── TRAIT CARDS ─── */
+  .trait-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .trait-card {
+    background: var(--cream);
+    border: 1px solid rgba(198,169,108,0.15);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+
+  .trait-card-header {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .trait-card-sub {
+    font-size: 0.75rem;
+    color: var(--warm-gray);
+    margin-bottom: 0.75rem;
+  }
+
+  .trait-card textarea {
+    background: var(--white);
+    min-height: 80px;
+  }
+
+  /* ─── EMOTION TAGS ─── */
+  .emotion-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .emotion-tag {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    background: var(--cream);
+    border: 1px solid rgba(184,98,106,0.2);
+    border-radius: 50px;
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+  }
+
+  .emotion-tag:hover {
+    border-color: var(--rose);
+    color: var(--rose);
+  }
+
+  .emotion-tag.selected {
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color: var(--white);
+    border-color: var(--rose);
+    box-shadow: 0 2px 10px rgba(139,58,66,0.2);
+  }
+
+  /* ─── SUBMIT ─── */
+  .submit-area {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    padding: 1.1rem 3rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(139,58,66,0.25);
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(139,58,66,0.35);
+    background: linear-gradient(135deg, var(--rose-deep), #6e2830);
+  }
+
+  .btn-submit:active {
+    transform: translateY(0);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .submit-note {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  .submit-price {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--rose-deep);
+    margin-bottom: 0.25rem;
+  }
+
+  .submit-price-note {
+    font-size: 0.82rem;
+    color: var(--warm-gray);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,253,251,0.5);
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  footer a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  /* ─── VALIDATION ─── */
+  .field-error {
+    font-size: 0.78rem;
+    color: var(--error);
+    margin-top: 0.3rem;
+    display: none;
+  }
+
+  .field-error.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  input.invalid,
+  textarea.invalid {
+    border-color: var(--error);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .form-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .form-section:nth-child(1) { animation-delay: 0.1s; }
+  .form-section:nth-child(2) { animation-delay: 0.2s; }
+  .form-section:nth-child(3) { animation-delay: 0.3s; }
+  .form-section:nth-child(4) { animation-delay: 0.4s; }
+  .form-section:nth-child(5) { animation-delay: 0.5s; }
+  .form-section:nth-child(6) { animation-delay: 0.6s; }
+  .form-section:nth-child(7) { animation-delay: 0.7s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .form-section { padding: 1.5rem 1.25rem; }
+    .trait-pair { grid-template-columns: 1fr; }
+    .name-entry { flex-direction: column; gap: 0.5rem; }
+    .name-entry input { width: 100%; }
+    .btn-remove-name {
+      width: 100%;
+      height: 32px;
+    }
+    .form-header { padding: 2rem 1.25rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="form-header">
+  <a href="/" class="back-link">← Kembali ke Beranda</a>
+  <h1>Ceritakan <em>Kisah Cinta</em> Kalian</h1>
+  <p>Isi formulir di bawah ini agar kami bisa menciptakan lagu yang benar-benar personal dan menyentuh hati.</p>
+</div>
+
+<!-- ═══ PROGRESS ═══ -->
+<div class="progress-bar">
+  <div class="progress-inner">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-text" id="progressText">0 / 7</span>
+  </div>
+</div>
+
+<!-- ═══ FORM ═══ -->
+<div class="form-container">
+
+  <!-- 1. NAMA & PERAN -->
+  <div class="form-section" data-section="1">
+    <div class="form-section-number">1</div>
+    <h2 class="form-section-title">Nama-nama dalam Lagu</h2>
+    <p class="form-section-desc">Siapa saja yang ingin disebutkan namanya dalam lirik? Tulis nama dan perannya (misal: pengantin, orang tua, sahabat).</p>
+
+    <div class="name-entries" id="nameEntries">
+      <div class="name-entry">
+        <input type="text" name="person_name" placeholder="Nama, misal: Aisya" required>
+        <input type="text" name="person_role" placeholder="Peran, misal: Mempelai wanita">
+        <button type="button" class="btn-remove-name" title="Hapus" onclick="removeName(this)">×</button>
+      </div>
+      <div class="name-entry">
+        <input type="text" name="person_name" placeholder="Nama, misal: Raka" required>
+        <input type="text" name="person_role" placeholder="Peran, misal: Mempelai pria">
+        <button type="button" class="btn-remove-name" title="Hapus" onclick="removeName(this)">×</button>
+      </div>
+    </div>
+    <button type="button" class="btn-add-name" onclick="addName()">+ Tambah Nama</button>
+  </div>
+
+  <!-- 2. KEBIASAAN / KEGIATAN RUTIN -->
+  <div class="form-section" data-section="2">
+    <div class="form-section-number">2</div>
+    <h2 class="form-section-title">Kebiasaan & Kegiatan Rutin</h2>
+    <p class="form-section-desc">Ceritakan kebiasaan atau ritual kecil yang sering dilakukan pasangan ini. Hal-hal sederhana yang membuat hubungan mereka spesial.</p>
+
+    <div class="field-group">
+      <textarea name="habits" placeholder="Contoh: Setiap Sabtu pagi selalu jogging bareng di Alun-alun, saling kiriman meme sebelum tidur, masak bareng tiap weekend, selalu video call saat salah satu lagi di luar kota..."></textarea>
+    </div>
+  </div>
+
+  <!-- 3. DOA & HARAPAN -->
+  <div class="form-section" data-section="3">
+    <div class="form-section-number">3</div>
+    <h2 class="form-section-title">Doa & Harapan</h2>
+    <p class="form-section-desc">Apa doa dan harapan Anda untuk pasangan ini? Bisa dari sudut pandang Anda sendiri, keluarga, atau teman.</p>
+
+    <div class="field-group">
+      <textarea name="prayers" placeholder="Contoh: Semoga Allah selalu menjaga cinta mereka, dikaruniai keturunan yang saleh/salehah, rumah tangganya sakinah mawaddah warahmah, selalu saling menguatkan dalam suka dan duka..."></textarea>
+    </div>
+  </div>
+
+  <!-- 4. HAL MEMORABLE -->
+  <div class="form-section" data-section="4">
+    <div class="form-section-number">4</div>
+    <h2 class="form-section-title">Momen yang Paling Dikenang</h2>
+    <p class="form-section-desc">Ceritakan momen-momen spesial yang tak terlupakan. Bisa dari awal pertemuan, kencan pertama, lamaran, atau hal kecil yang bermakna besar.</p>
+
+    <div class="field-group">
+      <textarea name="memorable" placeholder="Contoh: Pertama kali ketemu di acara kampus tahun 2019, dia nembak di bawah hujan tanpa payung, pernah LDR 2 tahun tapi tetap kuat, dia selalu bawain kopi setiap pagi ke kantor saya..."></textarea>
+    </div>
+  </div>
+
+  <!-- 5. PERILAKU / SIFAT MEMPELAI -->
+  <div class="form-section" data-section="5">
+    <div class="form-section-number">5</div>
+    <h2 class="form-section-title">Sifat & Perilaku Mempelai</h2>
+    <p class="form-section-desc">Gambarkan karakter dan keunikan masing-masing mempelai. Hal-hal yang membuat mereka istimewa di mata Anda.</p>
+
+    <div class="trait-pair">
+      <div class="trait-card">
+        <p class="trait-card-header">🤵 Mempelai Pria</p>
+        <p class="trait-card-sub">Sifat, kebiasaan unik, cara dia menunjukkan cinta</p>
+        <textarea name="trait_groom" class="short" placeholder="Contoh: Pendiam tapi sangat perhatian, selalu buka pintu mobil untuk pasangan, humoris kalau sudah akrab, pekerja keras..."></textarea>
+      </div>
+      <div class="trait-card">
+        <p class="trait-card-header">👰 Mempelai Wanita</p>
+        <p class="trait-card-sub">Sifat, kebiasaan unik, cara dia menunjukkan cinta</p>
+        <textarea name="trait_bride" class="short" placeholder="Contoh: Ceria dan selalu bikin suasana hangat, suka masak makanan favorit pasangan, teliti dan sabar, senyumnya bikin hari cerah..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. GENRE LAGU -->
+  <div class="form-section" data-section="6">
+    <div class="form-section-number">6</div>
+    <h2 class="form-section-title">Genre Lagu</h2>
+    <p class="form-section-desc">Pilih nuansa musik yang paling cocok. Bisa pilih lebih dari satu jika ingin campuran.</p>
+
+    <div class="genre-grid" id="genreGrid">
+      <button type="button" class="genre-chip" data-genre="Pop">Pop</button>
+      <button type="button" class="genre-chip" data-genre="Akustik">Akustik</button>
+      <button type="button" class="genre-chip" data-genre="Ballad">Ballad</button>
+      <button type="button" class="genre-chip" data-genre="R&B">R&B</button>
+      <button type="button" class="genre-chip" data-genre="Islami / Nasyid">Islami / Nasyid</button>
+      <button type="button" class="genre-chip" data-genre="Jazz">Jazz</button>
+      <button type="button" class="genre-chip" data-genre="Dangdut">Dangdut</button>
+      <button type="button" class="genre-chip" data-genre="Keroncong">Keroncong</button>
+      <button type="button" class="genre-chip" data-genre="Lainnya">Lainnya ✎</button>
+    </div>
+    <div class="genre-custom" id="genreCustom">
+      <div class="field-group">
+        <label class="field-label">Genre Lainnya</label>
+        <input type="text" name="genre_custom" placeholder="Tulis genre yang Anda inginkan...">
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. MEMORI & EMOSI INTI -->
+  <div class="form-section" data-section="7">
+    <div class="form-section-number">7</div>
+    <h2 class="form-section-title">Memori & Emosi Inti</h2>
+    <p class="form-section-desc">Emosi apa yang ingin dibangkitkan saat pendengar mendengar lagu ini? Pilih beberapa dan ceritakan lebih detail.</p>
+
+    <div class="emotion-grid" id="emotionGrid">
+      <button type="button" class="emotion-tag" data-emotion="Haru & terharu">Haru & terharu</button>
+      <button type="button" class="emotion-tag" data-emotion="Bahagia & syukur">Bahagia & syukur</button>
+      <button type="button" class="emotion-tag" data-emotion="Romantis & mesra">Romantis & mesra</button>
+      <button type="button" class="emotion-tag" data-emotion="Nostalgia & rindu">Nostalgia & rindu</button>
+      <button type="button" class="emotion-tag" data-emotion="Semangat & harapan">Semangat & harapan</button>
+      <button type="button" class="emotion-tag" data-emotion="Tenang & damai">Tenang & damai</button>
+      <button type="button" class="emotion-tag" data-emotion="Bangga & kagum">Bangga & kagum</button>
+      <button type="button" class="emotion-tag" data-emotion="Lucu & ceria">Lucu & ceria</button>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Ceritakan Lebih Detail <span class="optional">(opsional)</span></label>
+      <textarea name="emotion_detail" class="short" placeholder="Contoh: Saya ingin lagu ini bikin orang terharu saat intro, lalu semangat di bagian reff. Kalau bisa, ada bagian yang bikin pengantin saling tatap dan tersenyum..."></textarea>
+    </div>
+  </div>
+
+  <!-- ═══ SUBMIT ═══ -->
+  <div class="submit-area">
+    <p class="submit-price">Rp 199.000</p>
+    <p class="submit-price-note">Selesai maksimal 1x24 jam · Pembayaran setelah brief dikonfirmasi</p>
+    <button type="button" class="btn-submit" id="btnSubmit" onclick="submitForm()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.941 11.941 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.34 0-4.507-.793-6.23-2.13l-.354-.284-3.065 1.027 1.027-3.065-.284-.354A9.961 9.961 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Kirim Brief ke Sandra via WhatsApp
+    </button>
+    <p class="submit-note">Data formulir akan dikirim langsung ke WhatsApp Sandra untuk diproses.</p>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>&copy; 2026 Hadiah Lagu &middot; <a href="https://hadiahlagu.com">hadiahlagu.com</a> &middot; <a href="https://wa.me/6285224660075">Hubungi Sandra</a></p>
+</footer>
+
+<script>
+  // ─── NAME ENTRIES ───
+  function addName() {
+    const container = document.getElementById('nameEntries');
+    const entry = document.createElement('div');
+    entry.className = 'name-entry';
+    entry.innerHTML = `
+      <input type="text" name="person_name" placeholder="Nama">
+      <input type="text" name="person_role" placeholder="Peran">
+      <button type="button" class="btn-remove-name" title="Hapus" onclick="removeName(this)">×</button>
+    `;
+    container.appendChild(entry);
+    entry.querySelector('input').focus();
+    updateProgress();
+  }
+
+  function removeName(btn) {
+    const entries = document.querySelectorAll('.name-entry');
+    if (entries.length > 1) {
+      btn.closest('.name-entry').remove();
+      updateProgress();
+    }
+  }
+
+  // ─── GENRE CHIPS ───
+  const selectedGenres = new Set();
+  document.querySelectorAll('.genre-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const genre = chip.dataset.genre;
+      if (chip.classList.toggle('selected')) {
+        selectedGenres.add(genre);
+      } else {
+        selectedGenres.delete(genre);
+      }
+      // Show/hide custom field
+      document.getElementById('genreCustom').classList.toggle('visible', selectedGenres.has('Lainnya'));
+      updateProgress();
+    });
+  });
+
+  // ─── EMOTION TAGS ───
+  const selectedEmotions = new Set();
+  document.querySelectorAll('.emotion-tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      const emotion = tag.dataset.emotion;
+      if (tag.classList.toggle('selected')) {
+        selectedEmotions.add(emotion);
+      } else {
+        selectedEmotions.delete(emotion);
+      }
+      updateProgress();
+    });
+  });
+
+  // ─── PROGRESS TRACKING ───
+  function updateProgress() {
+    let filled = 0;
+    const total = 7;
+
+    // 1: Names
+    const names = document.querySelectorAll('input[name="person_name"]');
+    if ([...names].some(n => n.value.trim())) filled++;
+
+    // 2: Habits
+    if (document.querySelector('textarea[name="habits"]').value.trim()) filled++;
+
+    // 3: Prayers
+    if (document.querySelector('textarea[name="prayers"]').value.trim()) filled++;
+
+    // 4: Memorable
+    if (document.querySelector('textarea[name="memorable"]').value.trim()) filled++;
+
+    // 5: Traits
+    const tg = document.querySelector('textarea[name="trait_groom"]').value.trim();
+    const tb = document.querySelector('textarea[name="trait_bride"]').value.trim();
+    if (tg || tb) filled++;
+
+    // 6: Genre
+    if (selectedGenres.size > 0) filled++;
+
+    // 7: Emotions
+    if (selectedEmotions.size > 0) filled++;
+
+    const pct = Math.round((filled / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = filled + ' / ' + total;
+  }
+
+  // Listen to all inputs
+  document.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('input', updateProgress);
+  });
+
+  // ─── SUBMIT → WHATSAPP ───
+  function submitForm() {
+    // Collect names
+    const nameEntries = document.querySelectorAll('.name-entry');
+    let namesText = '';
+    nameEntries.forEach((entry, i) => {
+      const name = entry.querySelector('input[name="person_name"]').value.trim();
+      const role = entry.querySelector('input[name="person_role"]').value.trim();
+      if (name) {
+        namesText += `  ${i + 1}. ${name}` + (role ? ` — ${role}` : '') + '\n';
+      }
+    });
+
+    const habits = document.querySelector('textarea[name="habits"]').value.trim();
+    const prayers = document.querySelector('textarea[name="prayers"]').value.trim();
+    const memorable = document.querySelector('textarea[name="memorable"]').value.trim();
+    const traitGroom = document.querySelector('textarea[name="trait_groom"]').value.trim();
+    const traitBride = document.querySelector('textarea[name="trait_bride"]').value.trim();
+    const genreCustom = document.querySelector('input[name="genre_custom"]')?.value.trim() || '';
+    const emotionDetail = document.querySelector('textarea[name="emotion_detail"]').value.trim();
+
+    // Build genres string
+    let genres = [...selectedGenres].filter(g => g !== 'Lainnya');
+    if (selectedGenres.has('Lainnya') && genreCustom) {
+      genres.push(genreCustom);
+    }
+
+    // Validate minimum
+    if (!namesText) {
+      alert('Mohon isi minimal satu nama yang ingin disebutkan dalam lagu.');
+      return;
+    }
+
+    // Build message
+    let msg = `Halo Kak Sandra! 🙏\n\n`;
+    msg += `🎵 *BRIEF LAGU PERNIKAHAN — HADIAH LAGU*\n`;
+    msg += `━━━━━━━━━━━━━━━━━━\n\n`;
+
+    msg += `*1. Nama-nama dalam Lagu:*\n${namesText}\n`;
+
+    if (habits) msg += `*2. Kebiasaan & Kegiatan Rutin:*\n${habits}\n\n`;
+    if (prayers) msg += `*3. Doa & Harapan:*\n${prayers}\n\n`;
+    if (memorable) msg += `*4. Momen yang Dikenang:*\n${memorable}\n\n`;
+
+    if (traitGroom || traitBride) {
+      msg += `*5. Sifat & Perilaku Mempelai:*\n`;
+      if (traitGroom) msg += `  🤵 Pria: ${traitGroom}\n`;
+      if (traitBride) msg += `  👰 Wanita: ${traitBride}\n`;
+      msg += `\n`;
+    }
+
+    if (genres.length) msg += `*6. Genre Lagu:*\n  ${genres.join(', ')}\n\n`;
+
+    if (selectedEmotions.size || emotionDetail) {
+      msg += `*7. Emosi yang Ingin Dibangkitkan:*\n`;
+      if (selectedEmotions.size) msg += `  ${[...selectedEmotions].join(', ')}\n`;
+      if (emotionDetail) msg += `  Detail: ${emotionDetail}\n`;
+      msg += `\n`;
+    }
+
+    msg += `━━━━━━━━━━━━━━━━━━\n`;
+    msg += `💰 Paket: Rp 199.000 (maks 1x24 jam)\n`;
+    msg += `Mohon diproses ya Kak. Terima kasih! 🙏`;
+
+    // Open WhatsApp
+    const waURL = `https://wa.me/6285224660075?text=${encodeURIComponent(msg)}`;
+    window.open(waURL, '_blank');
+  }
+
+  // Init progress
+  updateProgress();
+</script>
+
+</body>
+</html>
