@@ -50,10 +50,7 @@
     text-align: center;
     padding: 2rem;
     position: relative;
-    background:
-      radial-gradient(ellipse at 20% 80%, rgba(198,169,108,0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(184,98,106,0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(255,249,240,1) 0%, rgba(245,237,224,1) 100%);
+    background: url('og-image.png') center center / cover no-repeat;
     overflow: hidden;
   }
 
@@ -61,16 +58,24 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image:
-      repeating-linear-gradient(45deg, transparent 0, transparent 49px, rgba(198,169,108,0.06) 49px, rgba(198,169,108,0.06) 51px, transparent 51px),
-      repeating-linear-gradient(-45deg, transparent 0, transparent 49px, rgba(198,169,108,0.06) 49px, rgba(198,169,108,0.06) 51px, transparent 51px);
+    background: linear-gradient(
+      to bottom,
+      rgba(44,36,32,0.55) 0%,
+      rgba(44,36,32,0.65) 40%,
+      rgba(44,36,32,0.8) 100%
+    );
     pointer-events: none;
+  }
+
+  .hero > * {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-ornament {
     width: 120px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
     margin-bottom: 2rem;
     animation: fadeSlideDown 1s ease 0.3s both;
   }
@@ -80,7 +85,7 @@
     font-size: 0.85rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--gold-dark);
+    color: var(--gold-light);
     margin-bottom: 1.5rem;
     animation: fadeSlideDown 1s ease 0.5s both;
   }
@@ -90,20 +95,21 @@
     font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: 400;
     line-height: 1.15;
-    color: var(--charcoal);
+    color: var(--white);
     max-width: 800px;
     animation: fadeSlideDown 1s ease 0.7s both;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
   }
 
   .hero h1 em {
     font-style: italic;
-    color: var(--rose);
+    color: var(--gold-light);
   }
 
   .hero-sub {
     font-family: 'Lora', Georgia, serif;
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--warm-gray);
+    color: rgba(255,253,251,0.75);
     max-width: 580px;
     margin-top: 1.5rem;
     line-height: 1.7;
@@ -124,7 +130,7 @@
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(1.6rem, 3.5vw, 2.2rem);
     font-weight: 700;
-    color: var(--rose-deep);
+    color: var(--gold-light);
   }
 
   .hero-price-label {
@@ -132,7 +138,7 @@
     font-size: 0.8rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--warm-gray);
+    color: rgba(255,253,251,0.5);
     text-align: left;
     line-height: 1.3;
   }
@@ -180,21 +186,21 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--gold-dark);
-    border-bottom: 1px solid var(--gold-light);
+    color: var(--gold-light);
+    border-bottom: 1px solid rgba(232,213,163,0.4);
     padding-bottom: 2px;
     transition: all 0.3s ease;
   }
 
   .btn-secondary:hover {
-    color: var(--rose);
-    border-color: var(--rose-light);
+    color: var(--white);
+    border-color: var(--white);
   }
 
   .hero-ornament-bottom {
     width: 80px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
     margin-top: 2.5rem;
     animation: fadeSlideDown 1s ease 1.3s both;
   }
@@ -203,7 +209,7 @@
     position: absolute;
     bottom: 2rem;
     animation: fadeSlideDown 1s ease 1.5s both, float 3s ease-in-out infinite 2s;
-    color: var(--gold);
+    color: var(--gold-light);
     font-size: 1.5rem;
     cursor: pointer;
     text-decoration: none;
@@ -713,22 +719,30 @@
     transform: translateY(0);
   }
 
-  /* ─── WEDDING ILLUSTRATION ─── */
-  .hero-illustration {
-    margin-bottom: 1.5rem;
-    animation: fadeSlideDown 1s ease 0.2s both;
+  /* ─── CTA PHOTO ─── */
+  .cta-photo {
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid var(--gold-light);
+    box-shadow: 0 12px 40px rgba(198,169,108,0.2);
+    position: relative;
   }
 
-  .hero-illustration svg {
-    filter: drop-shadow(0 8px 24px rgba(198,169,108,0.15));
+  .cta-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    box-shadow: inset 0 0 30px rgba(44,36,32,0.08);
+    pointer-events: none;
   }
 
-  .cta-illustration {
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-illustration svg {
-    filter: drop-shadow(0 4px 16px rgba(198,169,108,0.12));
+  .cta-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* ─── AUDIO SAMPLES ─── */
@@ -954,142 +968,7 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
-
-  <!-- Islamic Wedding Couple Illustration -->
-  <div class="hero-illustration">
-    <svg width="220" height="240" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#E8D5A3"/>
-          <stop offset="50%" stop-color="#C6A96C"/>
-          <stop offset="100%" stop-color="#8B7340"/>
-        </linearGradient>
-        <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#D4949A"/>
-          <stop offset="100%" stop-color="#B8626A"/>
-        </linearGradient>
-        <linearGradient id="dressGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#FFFDFB"/>
-          <stop offset="100%" stop-color="#F5EDE0"/>
-        </linearGradient>
-        <linearGradient id="hijabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#FFFDFB"/>
-          <stop offset="40%" stop-color="#F5EDE0"/>
-          <stop offset="100%" stop-color="#E8D5A3"/>
-        </linearGradient>
-        <linearGradient id="suitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#3D3530"/>
-          <stop offset="100%" stop-color="#2C2420"/>
-        </linearGradient>
-        <radialGradient id="glowGrad" cx="50%" cy="50%">
-          <stop offset="0%" stop-color="#C6A96C" stop-opacity="0.15"/>
-          <stop offset="100%" stop-color="#C6A96C" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-
-      <!-- Glow background -->
-      <ellipse cx="110" cy="140" rx="100" ry="110" fill="url(#glowGrad)"/>
-
-      <!-- Decorative arch -->
-      <path d="M110,18 Q40,18 35,85 L35,95 Q35,88 38,82 Q42,28 110,28 Q178,28 182,82 Q185,88 185,95 L185,85 Q180,18 110,18Z" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.5"/>
-      <circle cx="110" cy="16" r="3" fill="#C6A96C" opacity="0.6"/>
-      <circle cx="60" cy="28" r="1.5" fill="#C6A96C" opacity="0.3"/>
-      <circle cx="160" cy="28" r="1.5" fill="#C6A96C" opacity="0.3"/>
-
-      <!-- ─── GROOM (left) ─── -->
-      <!-- Groom body / suit -->
-      <path d="M65,105 Q62,108 58,140 L52,210 Q52,218 60,220 L90,222 Q96,222 96,216 L92,140 Q90,115 85,108 Z" fill="url(#suitGrad)"/>
-      <!-- Suit lapel -->
-      <path d="M70,108 L75,130 L80,108" fill="none" stroke="#4A403A" stroke-width="1" opacity="0.5"/>
-      <!-- Shirt/collar -->
-      <path d="M69,105 L75,115 L81,105" fill="#FFFDFB" opacity="0.8"/>
-      <!-- Groom songkok/peci -->
-      <ellipse cx="75" cy="70" rx="16" ry="5" fill="#2C2420"/>
-      <rect x="61" y="52" width="28" height="19" rx="2" fill="#2C2420"/>
-      <rect x="60" y="51" width="30" height="3" rx="1" fill="#3D3530"/>
-      <!-- Groom head -->
-      <ellipse cx="75" cy="78" rx="13" ry="15" fill="#D4A574"/>
-      <!-- Groom face details -->
-      <ellipse cx="71" cy="76" rx="1.5" ry="1.8" fill="#5C4033"/>
-      <ellipse cx="79" cy="76" rx="1.5" ry="1.8" fill="#5C4033"/>
-      <path d="M72,82 Q75,85 78,82" fill="none" stroke="#8B6E5A" stroke-width="0.8" stroke-linecap="round"/>
-      <!-- Groom arm reaching to bride -->
-      <path d="M88,120 Q95,125 102,132" fill="none" stroke="url(#suitGrad)" stroke-width="6" stroke-linecap="round"/>
-      <!-- Groom hand -->
-      <ellipse cx="103" cy="134" rx="4.5" ry="3.5" fill="#D4A574"/>
-
-      <!-- ─── BRIDE (right) ─── -->
-      <!-- Bride dress -->
-      <path d="M125,108 Q118,120 108,200 Q106,218 115,222 L160,224 Q168,224 168,216 Q165,170 158,140 Q155,120 150,108 Z" fill="url(#dressGrad)" stroke="#E8D5A3" stroke-width="0.5"/>
-      <!-- Dress detail - lace pattern -->
-      <path d="M118,150 Q137,145 156,150" fill="none" stroke="#E8D5A3" stroke-width="0.6" opacity="0.6"/>
-      <path d="M114,170 Q137,165 160,170" fill="none" stroke="#E8D5A3" stroke-width="0.6" opacity="0.5"/>
-      <path d="M112,190 Q137,185 162,190" fill="none" stroke="#E8D5A3" stroke-width="0.6" opacity="0.4"/>
-      <!-- Hijab -->
-      <path d="M119,65 Q118,50 137,46 Q156,50 155,65 L158,100 Q158,112 148,115 L137,118 L126,115 Q116,112 116,100 Z" fill="url(#hijabGrad)" stroke="#E8D5A3" stroke-width="0.5"/>
-      <!-- Hijab drape over shoulders -->
-      <path d="M119,90 Q112,95 108,110 Q106,118 110,120" fill="url(#hijabGrad)" stroke="#E8D5A3" stroke-width="0.4" opacity="0.9"/>
-      <path d="M155,90 Q162,95 166,110 Q168,118 164,120" fill="url(#hijabGrad)" stroke="#E8D5A3" stroke-width="0.4" opacity="0.9"/>
-      <!-- Bride head/face -->
-      <ellipse cx="137" cy="78" rx="13" ry="15" fill="#D4A574"/>
-      <!-- Hijab frame around face -->
-      <path d="M126,68 Q125,60 137,57 Q149,60 148,68 L149,88 Q148,93 137,95 Q126,93 125,88 Z" fill="url(#hijabGrad)" stroke="none"/>
-      <!-- Re-draw face on top -->
-      <ellipse cx="137" cy="78" rx="11" ry="13" fill="#D4A574"/>
-      <!-- Bride face details -->
-      <ellipse cx="133" cy="76" rx="1.5" ry="1.8" fill="#5C4033"/>
-      <ellipse cx="141" cy="76" rx="1.5" ry="1.8" fill="#5C4033"/>
-      <!-- Eyelashes -->
-      <path d="M131,74.5 Q132,73.5 133,74" fill="none" stroke="#5C4033" stroke-width="0.5"/>
-      <path d="M141,74 Q142,73.5 143,74.5" fill="none" stroke="#5C4033" stroke-width="0.5"/>
-      <!-- Smile -->
-      <path d="M134,83 Q137,86.5 140,83" fill="none" stroke="#B8626A" stroke-width="0.9" stroke-linecap="round"/>
-      <!-- Blush -->
-      <ellipse cx="130" cy="81" rx="3" ry="1.5" fill="#D4949A" opacity="0.3"/>
-      <ellipse cx="144" cy="81" rx="3" ry="1.5" fill="#D4949A" opacity="0.3"/>
-      <!-- Bride arm reaching to groom -->
-      <path d="M122,120 Q115,128 107,133" fill="none" stroke="url(#dressGrad)" stroke-width="5" stroke-linecap="round"/>
-      <!-- Bride hand -->
-      <ellipse cx="106" cy="135" rx="4" ry="3.5" fill="#D4A574"/>
-
-      <!-- ─── SHARED ELEMENTS ─── -->
-      <!-- Joined hands / heart glow -->
-      <ellipse cx="105" cy="134" rx="10" ry="8" fill="#C6A96C" opacity="0.08"/>
-
-      <!-- Bouquet -->
-      <g transform="translate(100,142)">
-        <ellipse cx="8" cy="0" rx="9" ry="7" fill="url(#roseGrad)" opacity="0.7"/>
-        <circle cx="4" cy="-2" r="3.5" fill="#B8626A" opacity="0.6"/>
-        <circle cx="12" cy="-2" r="3" fill="#D4949A" opacity="0.7"/>
-        <circle cx="8" cy="-4" r="3.2" fill="#B8626A" opacity="0.5"/>
-        <circle cx="6" cy="1" r="2.5" fill="#D4949A" opacity="0.6"/>
-        <circle cx="11" cy="1" r="2.8" fill="#B8626A" opacity="0.5"/>
-        <!-- Leaves -->
-        <path d="M2,3 Q0,8 3,6" fill="#8B9A6B" opacity="0.6"/>
-        <path d="M14,3 Q16,8 13,6" fill="#8B9A6B" opacity="0.6"/>
-        <line x1="8" y1="5" x2="8" y2="12" stroke="#8B7340" stroke-width="0.8" opacity="0.5"/>
-      </g>
-
-      <!-- Musical notes floating -->
-      <g opacity="0.35" fill="#C6A96C">
-        <text x="30" y="55" font-size="14" font-family="serif">♪</text>
-        <text x="178" y="48" font-size="11" font-family="serif">♫</text>
-        <text x="18" y="100" font-size="10" font-family="serif">♪</text>
-        <text x="192" y="95" font-size="13" font-family="serif">♪</text>
-        <text x="42" y="38" font-size="9" font-family="serif">♫</text>
-        <text x="170" y="35" font-size="8" font-family="serif">♪</text>
-      </g>
-
-      <!-- Sparkle dots -->
-      <circle cx="25" cy="70" r="1.2" fill="#C6A96C" opacity="0.4"/>
-      <circle cx="195" cy="65" r="1" fill="#C6A96C" opacity="0.35"/>
-      <circle cx="45" cy="130" r="0.8" fill="#C6A96C" opacity="0.3"/>
-      <circle cx="180" cy="125" r="1.2" fill="#C6A96C" opacity="0.25"/>
-      <circle cx="30" cy="160" r="0.6" fill="#D4949A" opacity="0.3"/>
-      <circle cx="190" cy="155" r="0.8" fill="#D4949A" opacity="0.25"/>
-    </svg>
-  </div>
-
+  <div class="hero-ornament"></div>
   <p class="hero-badge">Hadiah Lagu</p>
   <h1>Abadikan Kisah Cinta<br>dalam <em>Sebuah Lagu</em></h1>
   <p class="hero-sub">Hadiah pernikahan paling personal — lagu original yang diciptakan khusus dari kisah nyata. Untuk pengantin, dari sahabat, atau untuk kekasih tercinta.</p>
@@ -1362,30 +1241,12 @@
 <!-- ═══ FINAL CTA ═══ -->
 <section class="cta-section">
   <div class="section-inner reveal">
-    <p class="section-label">Mulai Sekarang</p>
 
-    <!-- Small couple silhouette -->
-    <div class="cta-illustration">
-      <svg width="80" height="70" viewBox="0 0 80 70" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="ctaGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#E8D5A3"/>
-            <stop offset="100%" stop-color="#C6A96C"/>
-          </linearGradient>
-        </defs>
-        <!-- Groom silhouette -->
-        <ellipse cx="32" cy="16" rx="7" ry="8" fill="#C6A96C" opacity="0.6"/>
-        <rect x="26" y="8" width="12" height="8" rx="1" fill="#C6A96C" opacity="0.6"/>
-        <path d="M25,28 Q23,35 20,60 Q20,65 25,66 L39,67 Q42,67 42,63 L40,35 Q38,28 35,26 Z" fill="#C6A96C" opacity="0.5"/>
-        <!-- Bride silhouette with hijab -->
-        <path d="M42,12 Q42,5 50,4 Q58,5 58,12 L59,28 Q59,32 54,33 L50,34 L46,33 Q41,32 41,28 Z" fill="url(#ctaGold)" opacity="0.6"/>
-        <ellipse cx="50" cy="18" rx="6.5" ry="7.5" fill="#C6A96C" opacity="0.6"/>
-        <path d="M46,28 Q42,35 38,60 Q37,66 42,67 L58,68 Q63,68 62,62 Q60,45 56,35 Q54,28 52,26 Z" fill="url(#ctaGold)" opacity="0.45"/>
-        <!-- Heart between them -->
-        <path d="M40,38 Q40,34 43,34 Q45,34 45,37 Q45,34 47,34 Q50,34 50,38 Q50,42 45,46 Q40,42 40,38Z" fill="#B8626A" opacity="0.45"/>
-      </svg>
+    <div class="cta-photo">
+      <img src="og-image2.png" alt="Pengantin mendengarkan lagu spesial di hari pernikahan" loading="lazy">
     </div>
 
+    <p class="section-label">Mulai Sekarang</p>
     <h2 class="section-title">Cuma <em>Rp 199.000</em><br>untuk Kenangan Seumur Hidup</h2>
     <p class="cta-description">Isi formulir singkat, kami yang mengubah kisahnya jadi lagu. Selesai maksimal 1x24 jam.</p>
     <a href="/formulir" class="btn-primary">
